@@ -8,10 +8,31 @@
     <title>JavaScript game</title>
 </head>
 <body>
-    <div id="score">0</div>
-    <div class="grid"></div>
 
+    <div id="container">
 
+        <div id="header">
+            <h1>Breakout</h1>
+
+            <button onclick="game()">The game</button>
+            <button onclick="winners()">Highscores</button>
+
+        </div> <!--header loppuu-->
+
+        <div id="mainContent">
+
+            <div id="firstTab" class="gameTab">
+                <h2 id="score">0</h2>
+                <div class="grid"></div>
+            </div>
+
+            <div id="secondTab" class="scoreTab">
+                <h2>highscores</h2>
+            </div>
+
+        </div> <!--mainContent loppuu-->
+
+    </div> <!--container loppuu-->
 
     <script src="index.js"></script>
 </body>

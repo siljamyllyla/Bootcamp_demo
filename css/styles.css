@@ -1,25 +1,84 @@
-.grid{
+body {
+    font: 100% Georgia, “Times New Roman”, Times, serif;
+    background-color: rgb(209, 178, 202);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+#container {
+    margin: 0 24% 0 24%;
+	padding-top: 10px;
+	padding-right:100px;
+}
+
+#header {
+    background-color: rgb(218, 203, 214);
+    border-bottom: #9290BF 1px solid;
+}
+
+.gameTab{
+    position: absolute;
+}
+
+.scoreTab{
+    visibility: hidden;
+    position: absolute;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#game {
+	margin: 0 24% 0 23.5%;
+	padding-top: 10px;
+	background: url("../images/content_back.jpg") no-repeat right top;
+	padding-right:100px;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 5px;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    padding-top: 5px;
+    text-align: center;
+}
+
+
+.grid {
     position: absolute;
     width: 560px;
     height: 300px;
-    border: solid black 1px;
-    margin-top: 80px;
+    border: solid 1px black;
+  }
+  
+.user {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: blueviolet;
 }
-
+  
 .block {
     position: absolute;
     width: 100px;
     height: 20px;
     background-color: blue;
 }
-
-.user {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    background-color: purple;
-}
-
+  
 .ball {
     position: absolute;
     width: 20px;
@@ -27,3 +86,4 @@
     border-radius: 10px;
     background-color: red;
 }
+
