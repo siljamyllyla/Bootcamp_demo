@@ -86,7 +86,7 @@ drawBall()
 // start game by pressing button
 function startGame() {
   addBlocks()
-  drawBall()
+  resetBall()
 
   timerId = setInterval(moveBall, 20)
   document.addEventListener('keydown', moveUser)
@@ -143,6 +143,7 @@ function moveBall() {
     ballCurrentPosition[1] += yDirection
     drawBall()
     checkForCollisions()
+    gameOver()
 }
 
 // reset ball position
@@ -197,7 +198,9 @@ function checkForCollisions() {
     changeDirectionUser()
   }
 
-  //game over
+}
+
+function gameOver() {
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId)
     scoreDisplay.innerHTML = 'You lose!'
