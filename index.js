@@ -9,6 +9,14 @@ function winners() {
 }
 
 
+// Database
+
+const dbscore = {
+  getScore() {
+    console.log("Highscore")
+  }
+}
+
 // GAME
 
 const grid = document.querySelector('.grid')
@@ -40,7 +48,7 @@ class Block {
   }
 }
 
-//all my blocks
+//all blocks
 const blocks = [
   new Block(10, 270),
   new Block(120, 270),
@@ -59,18 +67,7 @@ const blocks = [
   new Block(450, 210),
 ]
 
-//draw blocks
-function addBlocks() {
-  for (let i = 0; i < blocks.length; i++) {
-    const block = document.createElement('div')
-    block.classList.add('block')
-    block.style.left = blocks[i].bottomLeft[0] + 'px'  
-    block.style.bottom = blocks[i].bottomLeft[1] + 'px'  
-    grid.appendChild(block)
-    console.log(blocks[i].bottomLeft)
-  }
-}
-addBlocks()
+
 
 //add user
 const user = document.createElement('div')
@@ -84,6 +81,36 @@ ball.classList.add('ball')
 grid.appendChild(ball)
 drawBall()
 
+
+
+// start game by pressing button
+function startGame() {
+  addBlocks()
+  drawBall()
+
+  timerId = setInterval(moveBall, 20)
+  document.addEventListener('keydown', moveUser)
+
+}
+
+//draw blocks
+function addBlocks() {
+  for (let i = 0; i < blocks.length; i++) {
+    const block = document.createElement('div')
+    block.classList.add('block')
+    block.style.left = blocks[i].bottomLeft[0] + 'px'  
+    block.style.bottom = blocks[i].bottomLeft[1] + 'px'  
+    grid.appendChild(block)
+    console.log(blocks[i].bottomLeft)
+  }
+}
+
+//draw User
+function drawUser() {
+  user.style.left = currentPosition[0] + 'px'
+  user.style.bottom = currentPosition[1] + 'px'
+}
+
 //move user
 function moveUser(e) {
   switch (e.key) {
@@ -91,7 +118,7 @@ function moveUser(e) {
       if (currentPosition[0] > 0) {
         currentPosition[0] -= 10
         console.log(currentPosition[0] > 0)
-        drawUser()   
+        drawUser()  
       }
       break
     case 'ArrowRight':
@@ -102,13 +129,6 @@ function moveUser(e) {
       }
       break
   }
-}
-document.addEventListener('keydown', moveUser)
-
-//draw User
-function drawUser() {
-  user.style.left = currentPosition[0] + 'px'
-  user.style.bottom = currentPosition[1] + 'px'
 }
 
 //draw Ball
@@ -124,7 +144,12 @@ function moveBall() {
     drawBall()
     checkForCollisions()
 }
-timerId = setInterval(moveBall, 20)
+
+// reset ball position
+function resetBall() {
+  ballCurrentPosition = ballStart
+  drawBall()
+}
 
 //check for collisions
 function checkForCollisions() {
@@ -132,14 +157,14 @@ function checkForCollisions() {
   for (let i = 0; i < blocks.length; i++){
     if
     (
-      (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
-      ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]) 
+      ((ballCurrentPosition[0] + ballDiameter) > blocks[i].bottomLeft[0] && (ballCurrentPosition[0] + ballDiameter) < blocks[i].bottomRight[0]) &&
+      ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && (ballCurrentPosition[1] + ballDiameter) < blocks[i].topLeft[1])
     )
       {
       const allBlocks = Array.from(document.querySelectorAll('.block'))
       allBlocks[i].classList.remove('block')
       blocks.splice(i,1)
-      changeDirectionBlock()   
+      changeDirectionBlock()
 
       score++
       scoreDisplay.innerHTML = score
@@ -151,9 +176,15 @@ function checkForCollisions() {
     }
   }
   // check for wall hits
-  if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) || ballCurrentPosition[0] <= 0 || ballCurrentPosition[1] >= (boardHeight - ballDiameter))
+  if (ballCurrentPosition[0] >= (boardWidth - ballDiameter) || ballCurrentPosition[0] <= 0)
   {
     changeDirectionWall()
+  }
+
+  // ceiling hits
+  if (ballCurrentPosition[1] >= (boardHeight - ballDiameter))
+  {
+    changeDirectionCeiling()
   }
 
   //check for user collision
@@ -173,7 +204,6 @@ function checkForCollisions() {
     document.removeEventListener('keydown', moveUser)
   }
 }
-
 
 function changeDirectionUser() {
   if (xDirection === 2 && yDirection === -2) {
@@ -195,7 +225,7 @@ function changeDirectionBlock() {
         yDirection = -2
         return
     }
-
+    
 }
 
 function changeDirectionWall(){
@@ -204,7 +234,7 @@ function changeDirectionWall(){
         return
     }
     if (xDirection === 2 && yDirection === 2) {
-        yDirection = -2
+        xDirection = -2
         return
     }
     if (xDirection === 2 && yDirection === -2) {
@@ -215,5 +245,15 @@ function changeDirectionWall(){
         xDirection = 2
         return
     }
+}
 
+function changeDirectionCeiling(){
+  if (xDirection === 2 && yDirection === 2) {
+    yDirection = -2
+    return
+  }
+  if (xDirection === -2 && yDirection === 2) {
+    yDirection = -2
+    return
+  }
 }
