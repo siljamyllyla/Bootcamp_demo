@@ -23,42 +23,51 @@
         <div id="header">
             <h1>Breakout</h1>
 
-            <button id="button" onclick="game()">The game</button>
-            <button id="button" onclick="winners()">Highscores</button>
+            <div id="divbutton">
+              <button id="button" onclick="game()">The game</button>
+              <button id="button" onclick="winners()">Highscores</button>
+            </div>
 
         </div> <!--header loppuu-->
 
         <div id="mainContent">
 
             <div id="firstTab" class="gameTab">
-                <button id="startButton" onclick="startGame()">START</button>
+
+              <div id="startButton">
+                <button id="button" onclick="startGame()">START</button>
+              </div> <!--startButton loppuu-->
+                
+              <div id="divcanvas">
                 <canvas id="canvas"></canvas>
-            </form>
-            </div>
+              </div> <!--divcanvas loppuu-->
+
+            </div> <!--firstTab loppuu-->
 
             <div id="secondTab" class="scoreTab">
 
-                <div></div>
-                <div class="reset">Reset High Score</div>
+                <div id="divTable">
+                  <table id="table">
+                    <tr>
+                      <th>Highscores</th>
+                    </tr>
+                    <tr>
+                      <td class="high-score1">0</td>
+                    </tr>
+                    <tr>
+                      <td class="high-score">0</td>
+                    </tr>
+                    <tr>
+                      <td class="high-score">0</td>
+                    </tr>
+                  </table>
+                </div> <!--divTable loppuu-->
 
-                <table id="table">
-                  <tr>
-                    <th>Highscores</th>
-                  </tr>
-                  <tr>
-                    <td class="high-score">0</td>
-                  </tr>
-                  <tr>
-                    <td class="high-score">0</td>
-                  </tr>
-                  <tr>
-                    <td class="high-score">0</td>
-                  </tr>
-                </table>
-
+                <div class="reset">
+                  Reset score
                 </div>
 
-            </div>
+            </div> <!--secondTab loppuu-->
 
         </div> <!--mainContent loppuu-->
 
