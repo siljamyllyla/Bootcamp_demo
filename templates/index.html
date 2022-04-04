@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> -->
     <title>JavaScript game</title>
 </head>
 <body>
@@ -23,14 +23,15 @@
         <div id="mainContent">
 
             <div id="firstTab" class="gameTab">
-                <button onclick="startGame()">START</button>
+                <!-- <button onclick="startGame()">START</button>
                 <h2 id="score">0</h2>
-                <div class="grid"></div>
+                <div class="grid"></div> -->
             </div>
 
             <div id="secondTab" class="scoreTab">
 
                 <h2>Highscores</h2>
+                <div class="high-score"></div>
                 <!-- <div class="col-3" align="center">
                     <h2>highscores</h2>
                     <div id="error"></div>
@@ -44,8 +45,8 @@
 
     </div> <!--container loppuu-->
 
-    <!-- <script src="../index.js"></script> -->
-    <script src="{{ url_for('static',filename='index.js') }}"> </script>
+    <script src="../static/index.js"></script>
+    <!-- <script src="{{ url_for('static',filename='index.js') }}"> </script> -->
 </body>
 
 </html>

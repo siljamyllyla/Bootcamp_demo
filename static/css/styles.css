@@ -1,4 +1,82 @@
-body {
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    color: #FFFfFF;
+  }
+  
+  body {
+    background: #c5b3d1;
+    color: white;
+  }
+
+  #header {
+    background-color: rgb(103, 76, 104);
+    border-bottom: #9290BF 1px solid;
+  }
+
+  .button {
+    background-color: #ffffff;
+    position: absolute;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+  #secondTab{
+    width: 90%;
+  }
+
+  .scoreTab{
+    visibility: hidden;
+    position: absolute;
+    
+  }
+
+  #button {
+    background: #baa9e9;
+  }
+  
+  #startButton {
+    background: #7967ac;
+    position: absolute;
+    left: 45%;
+    top: 150px;
+  }
+
+  #canvas {
+    background: #52437a;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    border: 1px solid #52437a;
+  }
+
+  #table, tr, td {
+    border: 1px solid;
+    text-align: center;
+  }
+  
+  .high-score {
+    top: 50px;
+    text-align: center;
+  }
+  
+  .reset {
+    cursor: pointer;
+    position: absolute;
+    top: 95%;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+  }
+
+/* body {
     font: 100% Georgia, “Times New Roman”, Times, serif;
     background-color: rgb(209, 178, 202);
     background-repeat: no-repeat;
@@ -28,7 +106,7 @@ body {
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -37,11 +115,9 @@ body {
     display: inline-block;
     font-size: 16px;
 }
-
 #game {
 	margin: 0 24% 0 23.5%;
 	padding-top: 10px;
-	background: url("../images/content_back.jpg") no-repeat right top;
 	padding-right:100px;
 }
 
@@ -57,26 +133,33 @@ h2 {
     text-align: center;
 }
 
+.high-score {
+    margin: 0;
+padding-top: 5px;
+text-align: center;
+}
+
 
 .grid {
     position: absolute;
     width: 560px;
-    height: 300px;
-    border: solid 1px black;
+    height: 600px;
+    background-color: #604469;
+    border: solid 1px #604469;
   }
   
 .user {
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: blueviolet;
+    background-color: rgb(238, 240, 112);
 }
   
 .block {
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: blue;
+    background-color: rgb(245, 136, 255);
 }
   
 .ball {
@@ -84,6 +167,5 @@ h2 {
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background-color: red;
-}
-
+    background-color: rgb(255, 255, 255);
+} */
