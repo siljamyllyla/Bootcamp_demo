@@ -13,7 +13,7 @@ function winners() {
 
 // GAME
 
-const scoreDisplay = document.querySelector(".high-score1");
+const scoreDisplay = document.querySelector(".high-score");
 const reset = document.querySelector(".reset");
 
 const canvas = document.getElementById("canvas");
