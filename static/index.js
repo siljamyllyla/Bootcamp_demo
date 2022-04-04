@@ -111,6 +111,18 @@ function play() {
   drawScore()
   gameOver()
 
+    // reset score
+    if (ball.y + ball.radius > canvas.height) {
+      if (score > parseInt(localStorage.getItem("highScore"))) {
+        localStorage.setItem("highScore", score.toString());
+        scoreDisplay.innerHTML = `${score}`;
+      }
+      // score = 0;
+      generateBricks();
+      ball.dx = speed;
+      ball.dy = -speed + 1;
+    }
+
   ball.x += ball.dx;
   ball.y += ball.dy;
 
@@ -246,17 +258,6 @@ function startGame() {
   generateBricks();
   play();
 
-  // reset score
-  if (ball.y + ball.radius > canvas.height) {
-    if (score > parseInt(localStorage.getItem("highScore"))) {
-      localStorage.setItem("highScore", score.toString());
-      scoreDisplay.innerHTML = `${score}`;
-    }
-    // score = 0;
-    generateBricks();
-    ball.dx = speed;
-    ball.dy = -speed + 1;
-  }
 }
 
 function gameOver() {
